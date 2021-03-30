@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
+void main()  {
+  runApp(MaterialApp(
+    home: HomePage(),
+    theme: ThemeData(
+      primarySwatch: Colors.red, 
+    ),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+
+
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("AWESOME APP"),
-      ),
+        title: Text("AWESOME APP BY AAYUSH GUPTA"),
+        );
       body: Center(
-        child: Container( 
-          height: 100,
+        child: Container(
+          height:100,
           width: 100,
           color: Colors.teal,
-        ),
-        ),
-        floatingActionButton:FloatingActionButton(onPressed: () {}, 
-        child: Icon(Icons.edit),
-        ),
-    );
+        )
+      ),
+    ); 
   }
 }

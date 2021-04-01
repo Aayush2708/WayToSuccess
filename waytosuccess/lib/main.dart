@@ -21,11 +21,37 @@ class HomePage extends StatelessWidget {
         title: Text("AWESOME APP BY AAYUSH GUPTA"),
       ),
       body: Center(
+        child: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Card(
           child: Column(
-            children: <Widget> [Image.asset("assets/IMG_20201016_142211.jpg")],
+            children: <Widget> [
+            Image.asset("assets/IMG_20201016_142211.jpg",
+            ),
+            SizedBox(
+              height: 20
+            ),
+            Text("CHANGE MY NAME",
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+             SizedBox(
+              height: 20
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextField(
+              decoration :InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Enter some text", 
+                labelText: "NAME",
+             
+             ),
+             ),
+             ),
+            ],
           ),
-        )
+         ), 
+        ),
       ),
       drawer: Drawer(
         child: ListView(

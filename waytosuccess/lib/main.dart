@@ -12,7 +12,16 @@ void main()  {
 
 
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+   var myText = "CHANGE my NAME";
+   TextEditingController _nameController= TextEditingController ();
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +32,8 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Card(
+        child: SingleChildScrollView( 
+         child: Card(
           child: Column(
             children: <Widget> [
             Image.asset("assets/IMG_20201016_142211.jpg",
@@ -31,7 +41,7 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: 20
             ),
-            Text("CHANGE MY NAME",
+            Text( myText,
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
              SizedBox(
@@ -40,6 +50,7 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
+                controller: _nameController,
               decoration :InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: "Enter some text", 
@@ -51,6 +62,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
          ), 
+        ),
         ),
       ),
       drawer: Drawer(
@@ -84,8 +96,13 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.edit),
+        onPressed: () {
+          myText = _nameController.text ;
+          setState(() {
+            
+          });
+        },
+        child: Icon(Icons.send),
         
       ),
     ); 
